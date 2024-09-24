@@ -6,7 +6,7 @@ package br.com.etecdracena.jogosdigitais.memorygame;
 
 /**
  *
- * @author 23040
+ * @author Marcelo Vieira
  */
 public class ScreenMain extends javax.swing.JFrame {
 
@@ -16,7 +16,7 @@ public class ScreenMain extends javax.swing.JFrame {
     public ScreenMain() {
         initComponents();
         
-        getContentPane().setBackground(new java.awt.Color(126, 16, 222));
+        getContentPane().setBackground(new java.awt.Color(135, 129, 112));
     }
 
     /**
@@ -39,7 +39,7 @@ public class ScreenMain extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(0, 0, 153));
+        setBackground(new java.awt.Color(143, 136, 116));
         setPreferredSize(new java.awt.Dimension(541, 494));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
@@ -87,7 +87,7 @@ public class ScreenMain extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setText("Desenvolvido por Pedro Henrique");
+        jLabel5.setText("Desenvolvido por Marcelo Vieira");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
