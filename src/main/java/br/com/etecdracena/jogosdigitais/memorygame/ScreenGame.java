@@ -24,6 +24,7 @@ public class ScreenGame extends javax.swing.JFrame implements ActionListener {
     private Integer factor, hits, attempts;
     private boolean firstSelected = true;
     private boolean check = true;
+    private GameButton firstButton, secondButton, imageButton[];
 
     /**
      * Creates new form ScreenGame
@@ -92,6 +93,20 @@ public class ScreenGame extends javax.swing.JFrame implements ActionListener {
         });
     }
 
+    private void choiceTema(Integer theme) {
+        switch (theme) {
+            case 1:
+                this.theme = "images/tema/rickAndMorty";
+                break;
+            /*
+            ----For V2
+            case 2:
+                this.theme = "images/tema/..."
+                break;
+            */
+        }
+    }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
