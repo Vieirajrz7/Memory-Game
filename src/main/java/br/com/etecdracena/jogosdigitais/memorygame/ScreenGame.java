@@ -4,11 +4,16 @@
  */
 package br.com.etecdracena.jogosdigitais.memorygame;
 
+import java.awt.Color;
 import java.awt.Container;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -24,6 +29,7 @@ public class ScreenGame extends javax.swing.JFrame implements ActionListener {
     private Integer factor, hits, attempts;
     private boolean firstSelected = true;
     private boolean check = true;
+    private Player player;
     private GameButton firstButton, secondButton, imageButton[];
 
     /**
@@ -107,8 +113,49 @@ public class ScreenGame extends javax.swing.JFrame implements ActionListener {
         }
     }
     
+    private void resumeGame() {
+        StringBuilder resume = new StringBuilder();
+        resume.append("Player: ").append(player.getName()).append("\n\n");
+        resume.append("Points: ").append(player.getPoints()).append("\n\n");
+        resume.append("Attempts: ").append(attempts);
+        
+        JOptionPane.showMessageDialog(null, resume.toString(), "Resumo do Jogo", JOptionPane.INFORMATION_MESSAGE);
+        setVisible(false);
+    }
+    
+    private JPanel panelImages() {
+        JPanel panel = new JPanel();
+        GridLayout grid = new GridLayout(factor, factor, 5, 5);
+        panel.setLayout(grid);
+        
+        int resultFactor = factor * factor;
+        imageButton = new GameButton[resultFactor];
+        
+        for (int cont = 0;  cont < resultFactor; cont++) {
+            imageButton[cont] = new GameButton(insertDefaultImage(), images[cont]);
+            imageButton[cont].addActionListener(this);
+            panel.add(imageButton[cont]);
+        }
+        return panel;
+    }
+    
+    private Icon insertDefaultImage() {
+        Icon imageDefault = new ImageIcon(getClass().getClassLoader()
+            .getResource(theme+"/bg.jpg"));
+        return imageDefault;
+    }
+    
+    private JPanel panelPlayer() {
+        playerScore = new JLabel("player: " + player.getName()
+                + " Pontos: " + player.getName());
+        JPanel panel = new JPanel();
+        panel.setBackground(Color.white);
+        panel.add(playerScore);
+        return panel;
+    }
+    
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent ae) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
